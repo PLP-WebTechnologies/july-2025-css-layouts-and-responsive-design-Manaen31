@@ -1,0 +1,119 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* ===== GRID LAYOUT FOR PAGE ===== */
+body {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+  grid-template-columns: 1fr;
+}
+
+/* Layout sections */
+.header {
+  grid-area: header;
+  background: #4CAF50;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.navbar {
+  grid-area: nav;
+  background: #333;
+}
+
+.navbar ul {
+  display: flex; /* FLEXBOX USED HERE */
+  justify-content: center;
+  list-style: none;
+}
+
+.navbar li {
+  margin: 0 1rem;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+.navbar a:hover {
+  background: #575757;
+  border-radius: 5px;
+}
+
+.main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* content + sidebar */
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.content {
+  background: #f4f4f4;
+  padding: 1rem;
+}
+
+.sidebar {
+  background: #ddd;
+  padding: 1rem;
+}
+
+.footer {
+  grid-area: footer;
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* ===== FLEXBOX CARDS ===== */
+.card-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card {
+  flex: 1;
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet view */
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: 1fr; /* stack content and sidebar */
+  }
+}
+
+/* Mobile view */
+@media (max-width: 600px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-container {
+    flex-direction: column;
+  }
+}
